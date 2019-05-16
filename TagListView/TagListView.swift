@@ -294,7 +294,6 @@ open class TagListView: UIView {
     
     private func createNewTagView(_ title: String) -> TagView {
         let tagView = TagView(title: title)
-        
         tagView.textColor = textColor
         tagView.selectedTextColor = selectedTextColor
         tagView.tagBackgroundColor = tagBackgroundColor
@@ -326,9 +325,11 @@ open class TagListView: UIView {
     }
 
     @discardableResult
-    open func addTag(_ title: String) -> TagView {
+    open func addTag(_ title: String, buttonTag: Int) -> TagView {
         defer { rearrangeViews() }
-        return addTagView(createNewTagView(title))
+        let tagViewNew = createNewTagView(title)
+        tagViewNew.tag = buttonTag
+        return addTagView(tagViewNew)
     }
     
     @discardableResult
