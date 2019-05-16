@@ -325,7 +325,7 @@ open class TagListView: UIView {
     }
 
     @discardableResult
-    open func addTag(_ title: String, buttonTag: Int) -> TagView {
+    open func addTag(_ title: String, buttonTag: Int = 0) -> TagView {
         defer { rearrangeViews() }
         let tagViewNew = createNewTagView(title)
         tagViewNew.tag = buttonTag
